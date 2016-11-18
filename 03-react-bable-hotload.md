@@ -11,6 +11,7 @@ npm install --save babel-core
 
 * Add webpack-hot-middleware
 * add plugin
+
 `
 import path from 'path';
 import webpack from 'webpack';

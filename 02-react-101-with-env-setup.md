@@ -7,6 +7,7 @@ A simple server can serve HTML is up. Next Step: get basic React component worki
 `touch client/index.js`
 
 in index.js, is pretty standard react stuff: 
+
 `
 import React from 'react';
 import {render} from 'react-dom';
@@ -21,6 +22,7 @@ render(<App />, document.getElementById('app'));
 open index.html under server folder
 
 Change body to 
+
 `
 <body>
 	<div id="app"></div>
@@ -64,7 +66,9 @@ import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackConfig from '../webpack.config.dev';
 `
+
 also add middleware at the following location
+
 `
 let app = express();
 
@@ -75,21 +79,27 @@ let app = express();
  });
 
 `
+
 * make webpack comfortable
+
 
 `
 npm install --save-dev webpack webpack-dev-middleware
 `
+
 config webpack :
 
 under root directory
 
+
 `touch webpack.config.dev.js`
 
 content of webpack.config.dev.js
-`
-import path from 'path';
 
+
+`
+
+import path from 'path';
 export default {
 	devtools: 'eval-source-map',  
 	entry: path.join(__dirname, '/client/index.js'),
@@ -111,6 +121,8 @@ export default {
 }
 
 `
+
+
 Here are the notes to understand webpack config file:
 entry: source file to compile  (MUST HAVE)
 output: can give any path, because middleware will serve the bundle from memory instead of serve the actual file
@@ -127,15 +139,18 @@ loader : use babel as loader
 resolve: anyfile without extension or with .js extension <---HERE, I need more digging of webpack config, but will do that later
 
 install babel loader --> for webpack to understand javascript
+
 `npm install --save-dev babel-loader`
 
 Now the server still fail because babel it self doesn't understand react
 
 need to modify .babelrc file, add 'react' in the preset array
 
+
 `{
 	"presets" : ["es2015", 'react']
 }`
+
 
 and install the preset
 
@@ -144,5 +159,8 @@ and install the preset
 Now we are all good 
 
 finally add 
-devtools: 'eval-source-map' for debugging purpose. 
+
+`devtools: 'eval-source-map' `
+
+for debugging purpose. 
 

@@ -10,6 +10,7 @@
 `touch index.js`
 
 in the index.js, the following is to setup a basic express server
+
 `
 import express from 'express';
  let app = express();
@@ -23,6 +24,7 @@ import express from 'express';
 `
 open package.json, 
 add 
+
 `
 "scripts": {
     "server": "babel-node server/index.js",
@@ -35,6 +37,7 @@ Install express
 `npm install --save express`
 
 Install babel-cli 
+
 `npm install --save-dev babel-cli`
 
 config babel to recognize es6 syntax
@@ -43,6 +46,7 @@ touch .babelrc
 
 open .babelrc
 
+
 `
 {
 	"presets" : ["es2015"]
@@ -50,9 +54,11 @@ open .babelrc
 `
 install plugin
 
+
 `npm install --save-dev babel-preset-es2015`
 
 3, start server
+
 
 `npm run server`
 
@@ -63,9 +69,11 @@ Now you should have a simple express server running!
 1, change res.send... 
 to 
 
+
 `res.sendFile(path.join(__dirname, './index.html'));`
 
 Then create a boilerplate HTML index.html under folder server/
+
 
 `
 <!DOCTYPE html>
@@ -84,9 +92,11 @@ Then create a boilerplate HTML index.html under folder server/
 
 install nodemon to enable realtime refresh server whenever server folder changes ( BUT NOT CLIENT side, which will use webpack!)
 
+
 `npm install nodemon`
 
 in packedge.json
+
 
 `"server": "nodemon --watch server --exec babel-node -- server/index.js",`
 
