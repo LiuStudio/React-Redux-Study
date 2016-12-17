@@ -62,3 +62,26 @@ if it is a pulic repo, you don't need it.
  
  
  Go to github website, select your new branch, follow the step, it is pretty intuitive! :)
+
+
+
+
+ 6, FLOWs of branching and issuing pull request
+ git clone ...
+ git checkout <branch> ( develop <--)
+ git pull
+ git checkout -b <my_local_branch_name>
+ git push  -u origin <my_local_branch_name>
+
+ Then go to github repo website, issue pull request. 
+ make sure the number of commits matches your local commits number. 
+
+ 7, after code review, we should rebase multiple commits into one before merge to the trunk
+
+ git log ---> check log
+ git rebase -i HEAD~2    -----> clappse the first /latest two comments
+ keep the first one pick , squash all others below it  -- although they are newest/newer comment
+ 
+
+ 
+
