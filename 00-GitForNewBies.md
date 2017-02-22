@@ -82,6 +82,8 @@ if it is a pulic repo, you don't need it.
  git rebase -i HEAD~2    -----> clappse the first /latest two comments
  keep the first one pick , squash all others below it  -- although they are newest/newer comment
  
-
+8, How to abandon unwanted changes
+git clean -df
+git checkout -- .
  
 
