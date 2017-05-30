@@ -85,5 +85,34 @@ if it is a pulic repo, you don't need it.
 8, How to abandon unwanted changes
 git clean -df
 git checkout -- .
+
+9, What happen when you checkout a branch but have some unchecked in changes, but you are not ready to abandon them?
+
+git stash -u
+
+then git checkout <newbranch>
+
+when done, switch to your current branch and do 
+
+git stash pop
+
+10, About "rebase"
+
+git rebase develop  --- rebase current branch to develop branch
+git rebase master   --- rebase develop branch to master        
+
+NOTE:: your master or develop are your local develop and master. to really make you remote branch base to the updated develop and master, 
+you need to git checkout develop or git checkout master first, and do git pull, and then do the rebase. 
+
+then after rebase, did a git push -f , 
+
+then go to github, change your PR from compare to develop to compare to master, verify the PR change is consistant with it when you are vs develop( since you already rebased, there shouldn't
+be any older changes...)
+
+otherwise, STOP here and understand what is going wrong. 
+
+11, sourceTree is a good GUI interface for git control
+12 git --help is very helpful
+13 git log --graph --oneline  will print out similar tree /picture sourcetree will give you
  
 
